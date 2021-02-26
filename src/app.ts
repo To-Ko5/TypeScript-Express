@@ -9,8 +9,13 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res, next) => {
-  res.send('<h1>hello</h1>')
+  res.render('index.ejs')
 })
+
+app.get('/about', (req, res, next) => {
+  res.render('about.ejs')
+})
+
 app.post('/', (req, res, next) => {
   console.log(req.body)
   res.send(`<h1>${req.body}</h1>`)
