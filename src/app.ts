@@ -24,6 +24,14 @@ app.get('/user/:name?', (req, res, next) => {
   }
 })
 
+app.get('/item/:id([0-9]+)', (req, res, next) => {
+  if (req.params.id) {
+    res.send(req.params.id)
+  } else {
+    res.send('no id')
+  }
+})
+
 app.post('/', (req, res, next) => {
   console.log(req.body)
   res.send(`<h1>${req.body}</h1>`)
