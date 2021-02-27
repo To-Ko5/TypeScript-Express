@@ -10,7 +10,8 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res, next) => {
-  res.render('index.ejs')
+  const name = 'tom'
+  res.render('index.ejs', { name: name })
 })
 
 app.get('/about', (req, res, next) => {
