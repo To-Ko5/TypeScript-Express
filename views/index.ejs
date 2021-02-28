@@ -11,5 +11,13 @@
     <h1>Top page</h1>
     <p><a href="/about">aboutへ</a></p>
     <p><%= name %></p>
+
+    <% const items = [ {id: 1, name: 'tom'}, {id: 2, name: 'ken'}, {id: 3, name:
+    'mike'} ]; %> <% items.forEach((item) => { %>
+    <li>
+      <span><%= item.id %></span>
+      <span><%= item.name %></span>
+    </li>
+    <% }); %>
   </body>
 </html>
