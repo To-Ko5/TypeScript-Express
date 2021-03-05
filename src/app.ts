@@ -4,6 +4,27 @@ const app = express()
 app.use(express.json())
 app.use(express.static('public'))
 
+const members = [
+  {
+    id: 1,
+    name: 'tom',
+    email: 'abc@demo.com',
+    status: true
+  },
+  {
+    id: 2,
+    name: 'ken',
+    email: 'zzz@demo.com',
+    status: true
+  },
+  {
+    id: 3,
+    name: 'mike',
+    email: 'ddd@demo.com',
+    status: false
+  }
+]
+
 app.use((req, res, next) => {
   console.log('hello')
   next()
@@ -34,14 +55,13 @@ app.get('/item/:id([0-9]+)', (req, res, next) => {
   }
 })
 
-app.post('/', (req, res, next) => {
-  console.log(req.body)
-  res.send(`<h1>${req.body}</h1>`)
-})
-
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(err)
   next()
+})
+
+app.get('/api/members', (req, res) => {
+  res.json(members)
 })
 
 app.listen(3000)
