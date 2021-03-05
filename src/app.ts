@@ -1,29 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express'
+import { members } from './Members'
 const app = express()
 
 app.use(express.json())
 app.use(express.static('public'))
-
-const members = [
-  {
-    id: 1,
-    name: 'tom',
-    email: 'abc@demo.com',
-    status: true
-  },
-  {
-    id: 2,
-    name: 'ken',
-    email: 'zzz@demo.com',
-    status: true
-  },
-  {
-    id: 3,
-    name: 'mike',
-    email: 'ddd@demo.com',
-    status: false
-  }
-]
 
 app.use((req, res, next) => {
   console.log('hello')
