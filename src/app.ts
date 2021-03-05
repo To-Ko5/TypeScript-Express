@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express'
+import moment from 'moment'
 import { members } from './Members'
 const app = express()
 
@@ -6,7 +7,11 @@ app.use(express.json())
 app.use(express.static('public'))
 
 app.use((req, res, next) => {
-  console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}`)
+  console.log(
+    `${req.protocol}://${req.get('host')}${
+      req.originalUrl
+    }:${moment().format()}`
+  )
   next()
 })
 
