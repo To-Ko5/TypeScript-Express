@@ -49,4 +49,11 @@ app.get('/api/members', (req, res) => {
   res.json(members)
 })
 
+app.get('/api/members/:id', (req, res) => {
+  const found = members.some((member) => member.id === Number(req.params.id))
+  if (found) {
+    res.json(members.filter((member) => member.id === Number(req.params.id)))
+  }
+})
+
 app.listen(3000)
